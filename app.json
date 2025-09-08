@@ -16,47 +16,88 @@
     "postdeploy": "echo 'Anime Telegram Bot deployed successfully!'"
   },
   "env": {
-    "BOT_TOKEN": {
-      "description": "Your Telegram Bot Token",
-      "required": true
-    },
     "API_ID": {
-      "description": "Your Telegram API ID",
-      "required": true
+      "description": "You api id, from my.telegram.org",
+      "value": ""
     },
     "API_HASH": {
-      "description": "Your Telegram API Hash",
-      "required": true
+      "description": "You api hash, from my.telegram.org",
+      "value": ""
     },
-    "DOWNLOAD_PATH": {
-      "description": "Path where downloaded episodes will be stored",
-      "value": "/tmp/downloads"
+    "BOT_TOKEN": {
+      "description": "Make a bot from @BotFather, and enter its api token here.",
+      "value": ""
+    },
+    "SESSION": {
+      "description": "Telethon Session String",
+      "value": "",
+      "required": false
+    },
+    "OWNER": {
+      "description": "Get your Telegram ID and paste here.",
+      "value": ""
+    },
+    "MONGO_SRV": {
+      "description": "Mongo SRV from MongoDB.",
+      "value": ""
+    },
+    "MAIN_CHANNEL": {
+      "description": "ID of Your Main Channel.",
+      "value": ""
+    },
+    "BACKUP_CHANNEL": {
+      "description": "If you want button upload on main channel, add backup channel because anime will be saved there.",
+      "value": ""
+    },
+    "LOG_CHANNEL": {
+      "description": "Channel ID where you can check status of tasks.",
+      "value": ""
+    },
+    "CLOUD_CHANNEL": {
+      "description": "Channel ID where bot will upload samples and screenshots.",
+      "value": ""
+    },
+    "FORCESUB_CHANNEL": {
+      "description": "Channel ID for ForceSub",
+      "value": "",
+      "required": false
+    },
+    "FORCESUB_CHANNEL_LINK": {
+      "description": "Channel link of ForceSub",
+      "value": "",
+      "required": false
+    },
+    "SEND_SCHEDULE": {
+      "description": "Keep it True if you want anime airing time, else False.",
+      "value": "True",
+      "required": false
+    },
+    "RESTART_EVERDAY": {
+      "description": "If you are in Heroku then keep it False.",
+      "value": "False",
+      "required": false
+    },
+    "THUMBNAIL": {
+      "description": "Put link of any picture.",
+      "value": "https://graph.org/file/ad1b25807b81cdf1dff65.jpg",
+      "required": false
+    },
+    "CRF": {
+      "description": "Less CRF = High Quality (more size), More CRF = Low Quality (less size), range 20-51",
+      "value": "27",
+      "required": false
     }
   },
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "standard-1x"
-    }
-  },
-  "image": "heroku/python",
-  "addons": [
-    "heroku-postgresql",
-    {
-      "plan": "rediscloud:30",
-      "as": "REDIS"
-    }
-  ],
   "buildpacks": [
     {
       "url": "heroku/python"
     }
   ],
-  "environments": {
-    "test": {
-      "scripts": {
-        "test": "python -m unittest discover tests"
-      }
+  "stack": "container",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "standard-2x"
     }
   }
 }
