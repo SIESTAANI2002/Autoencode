@@ -19,5 +19,5 @@ dnspython>=2.3.0          # Required for SRV DNS resolution
 
 # Your other project dependencies
 requests==2.31.0
-flask==2.3.5
+flask
 python-dotenv==1.0.0
