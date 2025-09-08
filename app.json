@@ -91,6 +91,18 @@
             "description": "Less CRF == High Quality, More Size , More CRF == Low Quality, Less Size, CRF Range = 20-51",
             "value": "27",
             "required": false
+   }, 
+   "buildpacks": [ 
+     { 
+       "url": "heroku/python" 
+     } 
+   ], 
+   "stack": "container", 
+   "formation": { 
+     "worker": { 
+       "quantity": 1,
+       "size": "standard-2x" 
+            
         }
     }
 }
