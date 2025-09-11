@@ -14,7 +14,7 @@ anitopy
 git+https://github.com/kaif-00z/html-telegraph-poster
 pytz
 pymongo[srv]
-dnspython>
+dnspython
 requests
 flask
 python-dotenv
